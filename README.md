@@ -1,3 +1,4 @@
 # startbucks
 
-## Open graph tag 적용
+## Open graph/Twitter Cards tag 적용
+## 
