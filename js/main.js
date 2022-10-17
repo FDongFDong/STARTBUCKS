@@ -93,6 +93,18 @@ new Swiper('.promotion .swiper-container', {
   },
 });
 
+new Swiper('.awards .swiper-container', {
+  direction: 'horizontal', // 수평 슬라이드 (기본값))
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 5, // 하나의 화면에 몇개의 슬라이드들이 보일꺼냐
+  navigation: {
+    prevEl: '.awards .swiper-prev',
+    nextEl: '.awards .swiper-next',
+  },
+});
+
 const promotionEl = document.querySelector('.promotion');
 const promotionToggleBtn = document.querySelector('.toggle-promotion');
 let isHidePromotion = false;
@@ -130,3 +142,15 @@ function random(min, max) {
   // 소수점 2자리의 랜덤한 숫자를 추출한다.
   return parseInt((Math.random() * (max - min) + min).toFixed(2));
 }
+
+const spyEls = document.querySelectorAll('section.scroll-spy');
+spyEls.forEach((spyEl) => {
+  // 감시한다.
+  // setClassToggle : HTML의 클래스를 지정한다.
+  new ScrollMagic.Scene({
+    triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정
+    triggerHook: 0.8, // 감시하고 있는 요소가 뷰포트 기준(1) 보여질때
+  })
+    .setClassToggle(spyEl, 'show')
+    .addTo(new ScrollMagic.Controller());
+});
