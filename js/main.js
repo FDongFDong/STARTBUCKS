@@ -92,3 +92,41 @@ new Swiper('.promotion .swiper-container', {
     nextEl: '.promotion .swiper-next', // 다음 버튼 선택자
   },
 });
+
+const promotionEl = document.querySelector('.promotion');
+const promotionToggleBtn = document.querySelector('.toggle-promotion');
+let isHidePromotion = false;
+promotionToggleBtn.addEventListener('click', () => {
+  isHidePromotion = !isHidePromotion;
+  if (isHidePromotion) {
+    // 숨김 처리
+    // hide라는 클래스를 추가한다.
+    promotionEl.classList.add('hide');
+  } else {
+    // 보임 처리
+    // hide라는 클래스를 삭제한다.
+    promotionEl.classList.remove('hide');
+  }
+});
+
+function floatingObject(selector, delay, size) {
+  // gsap.to(요소, 시간, 옵션);
+  gsap.to(selector, random(1.5, 2.5), {
+    y: size, // 위에서 아래로 20px만큼 내려온다
+    repeat: -1, // 무한 반복
+    yoyo: true, // 한번 재생된 애니메이션을 뒤로 돌린다.
+    // gsap easing
+    ease: Power1.easeInOut,
+    // 1초 후에 시작된다.
+    delay: random(0, delay),
+  });
+}
+
+floatingObject('.floating1', 1, 15);
+floatingObject('.floating2', 0.5, 15);
+floatingObject('.floating3', 1.5, 20);
+
+function random(min, max) {
+  // 소수점 2자리의 랜덤한 숫자를 추출한다.
+  return parseInt((Math.random() * (max - min) + min).toFixed(2));
+}

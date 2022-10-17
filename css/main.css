@@ -7,7 +7,8 @@ body {
   /* 16px의 1.4배의 줄높이 */
   line-height: 1.4;
   font-family: 'Nanum Gothic', sans-serif;
-  height: 3000px;
+  height: 6000px;
+
 }
 img{
   /* 이미지는 원래 inline요소이나 하나의 상자 block처럼 layout으로 사용하겠다는 의미 */
@@ -26,7 +27,7 @@ a{
 .btn{
   width: 130px;
   padding: 10px;
-  border: 2px solid #333;
+  border: 2px solid #fff;
   border-radius: 4px;
   color: #333;
   font-size: 16px;
@@ -53,7 +54,7 @@ a{
 }
 .btn.btn--brown{ 
   color: #592B18;
-  /* background-color: #fff; */
+ 
 }
 .btn.btn--brown:hover{
   color: #fff;
@@ -61,7 +62,7 @@ a{
 }
 .btn.btn--gold{
   color: #d9aa8a;
-  background-color: #d9aa8a;
+
 }
 .btn.btn--gold:hover{
   color: #fff;
@@ -69,7 +70,7 @@ a{
 }
 .btn.btn--white{
   color: #fff;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .btn.btn--while:hover{
   color: #333;
@@ -469,6 +470,13 @@ header .badges .badge{
   height: 693px;
   background-color: #f6f5ef;
   position: relative;
+  transition: height .4s;
+  /* 내용이 넘치지 않도록 */
+  overflow: hidden;
+}
+/* 일치 선택자 */
+.notice .promotion.hide{
+  height: 0;
 }
 .notice .promotion .swiper-container {
   /* calc() css의 단위계산 함수 */
@@ -563,4 +571,220 @@ header .badges .badge{
 .notice .promotion .swiper-next:hover {
   background-color: #333;
   color: #fff
+}
+
+/* REWARDS */
+.rewards {
+  position: relative;
+}
+.rewards .bg-left {
+  width: 50%;
+  height: 100%;
+  background-color: #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rewards .bg-right{
+  width: 50%;
+  height: 100%;
+  background-color: #d5c798;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.rewards .inner {
+  background-image: url("../images//rewards.jpg");
+  height: 241px;
+}
+
+.rewards .btn-group{
+  /* btn-group의 부모요소는 .rewards .inner이지만 전역속성을 통해 .inner에 position 값이 설정되어 있으므로 사용할 수 있다. */
+  position: absolute;
+  bottom:24px;
+  /* 가로너비 250px */
+  right:0;
+  width: 250px;
+  /* 수평으로 만드는데 */
+  display: flex;
+  /* 250px보다 넘치면 줄바꿈을 허용하겠다. */
+  flex-wrap: wrap;
+}
+
+.rewards .btn-group .btn.sign-up{
+  /* 공간 확보를 위한 */
+  margin-right: 10px;
+}
+.rewards .btn-group .btn.sign-in{
+width: 110px;
+}
+.rewards .btn-group .btn.gift{
+  margin-top:10px;
+  /* display: flex 컨테이너 내부에서 최대한으로 쓸수 있도록 늘어나란 의미. 증가 너비의 비율 */
+  flex-grow: 1;
+}
+
+
+/* YOUTUBE VIDEO */
+
+.youtube {
+  position: relative;
+  height: 700px;
+  background-color: #333;
+  /* 영상의 위쪽과 아래쪽 영역이 잘려나간다. */
+  overflow: hidden;
+}
+.youtube .youtube__area{
+  width: 1920px;
+  background-color: orange;
+  position: absolute;
+  left :50% ;
+  /* 가운데 배치하기 위함 */
+  margin-left: calc(1920px/ -2);
+  top: 50%;
+  margin-top: calc(1920px * 9 / 16 / -2); 
+}
+
+/* 가상 요소 선택자 : 스타일만을 위한 요소 선택자, HTML에 직접 요소를 추가하지 않고 가상의 요소를 만들어 스타일을 꾸며주기위함 */
+.youtube .youtube__area::before{
+  content: "";
+  /* before라는 요소는 inline 요소이므로 가로 넓이 세로넓이를 제대로 가질 수 없기 떄문에 block로 변경한다. */
+  display: block;  
+  width: 100%;
+  /* 16:9 비율 */
+  padding-top: 56.25%
+  
+}
+.youtube .youtube__cover {
+  background-image: url("../images/video_cover_pattern.png");
+  background-color: rgba(0,0,0,.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#player {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top : 0;
+  left: 0;
+}
+
+.youtube .inner {
+  height: 700px;
+}
+
+.youtube .floating1 {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+
+.youtube .floating2 {
+  position: absolute;
+  top: 350px;
+  left: 150px;
+}
+
+
+/* SEASON PRODUCT */
+.season-product{
+  background-image: url("../images/season_product_bg.jpg");
+}
+.season-product .inner{
+  height: 400px;
+}
+.season-product .floating3 {
+  position: absolute;
+  top: -200px;
+  right: 0;
+}
+.season-product .text-group {
+  position: absolute;
+  top: 110px;
+  right: 100px;
+
+}
+.season-product .text-group .title{
+  margin-bottom: 10px;
+
+}
+.season-product .text-group .description{
+  margin-bottom: 15px;
+}
+.season-product .text-group .more{
+
+}
+
+/* RESERVE COFFEE */
+.reserve-coffee{
+  /* 기본설정은 repeat 이라서 반복적으로 보인다.*/
+  background-image: url("../images/reserve_bg.jpg");
+}
+.reserve-coffee .inner{
+  height: 400px;
+}
+.reserve-coffee .reserve_logo {
+  position: absolute;
+  top: 110px;
+  left: 0;
+}
+
+.reserve-coffee .text-group {
+  position: absolute;
+  top: 124px;
+  left: 208px;
+}
+
+.reserve-coffee .product {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* PICK YOURE FAVORITE */
+.pick-your-favorite{
+  background-image: url("../images/favorite_bg.jpg");
+  /* 반복되지 않게 */
+  background-repeat: no-repeat;
+  background-position: center;
+  /* 요소가 스크롤될 때 같이 스크롤되지 않고 뷰포트에 고정되도록  */
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.pick-your-favorite .inner{
+  padding: 110px 0;
+}
+
+.pick-your-favorite .text-group{
+  margin-left: 100px;
+  width: 362px;
+  display: flex;
+  /* 수평정렬이 안되면 줄바꿈 */
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.pick-your-favorite .text-group .title{
+  margin-bottom: 40px;
+  
+
+}
+.pick-your-favorite .text-group .description{
+  margin-bottom: 40px;
+}
+
+/* RESERVE STORE */
+.reserve-store{
+  background-image: url('../images/reserve_store_bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+.reserve-store .inner{
+  height: 600px;
 }
