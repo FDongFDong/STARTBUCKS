@@ -1,10 +1,10 @@
-# startbucks
+# Startbucks Clone Coding
+- HTML/CSS/JS
 
-## Open graph/Twitter Cards tag 적용
+## LIB
+- SWIPER
+- LODASH
+- GSAP
+- SCROLL MAGIC
+- Google Fonts
 
-## SWIPER 적용
-
-## Google Fonts
-
-## gsap
-## lodash
