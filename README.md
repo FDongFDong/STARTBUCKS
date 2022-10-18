@@ -1,4 +1,4 @@
-# Startbucks Clone Coding
+# STRATBUCKS Clone Coding
 - HTML/CSS/JS
 
 ## LIB
