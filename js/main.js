@@ -22,7 +22,7 @@ searchInputEl.addEventListener('blur', () => {
 });
 
 const badgeEl = document.querySelector('header .badges');
-
+const toTopEl = document.querySelector('#to-top');
 // // 브라우저 자체(화면 자체)
 // window.addEventListener(
 //   'scroll',
@@ -47,15 +47,29 @@ window.addEventListener(
         opacity: 0,
         display: 'none',
       });
+      // 버튼 보이기
+      gsap.to(toTopEl, 0.2, {
+        x: 0,
+      });
     } else {
       // 배지 나타내기
       gsap.to(badgeEl, 0.6, {
         opacity: 1,
         display: 'block',
       });
+      // 버튼 숨기기
+      gsap.to(toTopEl, 0.2, {
+        x: 100,
+      });
     }
   }, 300)
 );
+
+toTopEl.addEventListener('click', () => {
+  gsap.to(window, 0.7, {
+    scrollTo: 0,
+  });
+});
 
 const fadeEls = document.querySelectorAll('.visual .fade-in');
 
@@ -154,3 +168,6 @@ spyEls.forEach((spyEl) => {
     .setClassToggle(spyEl, 'show')
     .addTo(new ScrollMagic.Controller());
 });
+
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear();
